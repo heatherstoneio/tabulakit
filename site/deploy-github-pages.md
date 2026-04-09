@@ -1,47 +1,45 @@
 # Deploy to GitHub Pages
 
-GitHub Pages is the simplest deployment option — push to `main` and your site goes live automatically.
+GitHub Pages is the simplest way to put your site on the internet. Once set up, every change you push automatically goes live.
 
-## Setup
+## What You Need to Do (One Time)
 
-### 1. Enable GitHub Pages
+There's one manual step that GitHub requires you to do in your browser — Claude Code can't do this for you:
 
-In your repository on GitHub:
+1. Go to your repository on **github.com**
+2. Click **Settings** (the gear icon, top menu bar)
+3. Click **Pages** (left sidebar, under "Code and automation")
+4. Under **Build and deployment**, change Source to **GitHub Actions**
+5. Click **Save**
 
-1. Go to **Settings** > **Pages**
-2. Under **Build and deployment**, set Source to **GitHub Actions**
-3. Click **Save**
+That's it. You only do this once.
 
-### 2. Push to Main
+## What Happens Automatically
 
-The included workflow (`.github/workflows/deploy.yml`) deploys the `site/` directory to GitHub Pages automatically on every push to `main`.
+Every time you (or Claude Code) push changes to `main`, a workflow deploys your `site/` folder to GitHub Pages. No commands to run, nothing to remember.
 
-To trigger a deploy manually, go to **Actions** > **Deploy to GitHub Pages** > **Run workflow**.
-
-### 3. Access Your Site
-
-Your site will be available at:
+Your site will be live at:
 
 ```
 https://YOUR_USERNAME.github.io/YOUR_REPO/
 ```
 
-Allow a minute or two for the first deployment to complete. You can check progress in the **Actions** tab.
+The first deploy takes a minute or two. After that, updates are fast.
 
-## Custom Domain
-
-To use a custom domain:
-
-1. Go to **Settings** > **Pages**
-2. Enter your domain under **Custom domain**
-3. Add a `CNAME` DNS record pointing to `YOUR_USERNAME.github.io`
-4. Check **Enforce HTTPS** once DNS propagates
-
-## SPA Routing
-
-TabulaKit includes a `404.html` that redirects missing paths to Docsify's hash-based router. This means deep links like `your-site.com/guides/setup` will correctly resolve to `/#/guides/setup`. No additional configuration is needed.
+> **Tip:** You can check if a deploy is running by clicking the **Actions** tab in your repository on GitHub.
 
 ## Limitations
 
-- **No authentication** — GitHub Pages sites are public. Use [Firebase](deploy-firebase.md) if you need Google auth.
-- **Repo must be public** (or you need GitHub Pro/Team/Enterprise for private repo Pages).
+- **Public only** — anyone on the internet can see your site. If you need to restrict access, use [Firebase](deploy-firebase.md) instead.
+- **Public repo required** unless you have GitHub Pro, Team, or Enterprise.
+
+## Advanced: Custom Domain
+
+If you own a domain name and want to use it instead of the `github.io` address:
+
+1. Go to **Settings** > **Pages**
+2. Enter your domain under **Custom domain**
+3. At your DNS provider, add a `CNAME` record pointing to `YOUR_USERNAME.github.io`
+4. Check **Enforce HTTPS** once the DNS change takes effect (can take up to 24 hours)
+
+If you're not sure what DNS means, skip this — the `github.io` address works fine.
