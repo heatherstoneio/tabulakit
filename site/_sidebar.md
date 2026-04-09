@@ -1,4 +1,5 @@
 - [Home](/)
+- [Case Studies](case-studies.md)
 - [Getting Started](getting-started.md)
 - **DEPLOYMENT**
 - [GitHub Pages](deploy-github-pages.md)
