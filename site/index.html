@@ -3,41 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading...</title>
+  <title>TabulaKit</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
   <script src="config.js"></script>
   <script src="auth-config.js"></script>
   <style>
     :root {
-      --theme-color: #3b82f6;
-      --sidebar-width: 260px;
-      --base-font-size: 15px;
-      --sidebar-nav-link-color--active: var(--theme-color);
-      --sidebar-name-color: var(--theme-color);
-      --sidebar-nav-link-border-color--active: var(--theme-color);
+      --theme-color: #e84118;
+      --theme-color-teal: #3bc0cb;
+      --sidebar-width: 280px;
+      --base-font-size: 16px;
+      --base-background-color: #222222;
+      --base-color: #dddddd;
+      --sidebar-background: #2a2a2a;
+      --sidebar-nav-link-color--active: var(--theme-color-teal);
+      --sidebar-name-color: var(--theme-color-teal);
+      --sidebar-nav-link-border-color--active: var(--theme-color-teal);
       --heading-color: var(--theme-color);
       --heading-h2-color: var(--theme-color);
       --blockquote-border-color: var(--theme-color);
       --table-head-background: #2E4057;
-      --code-inline-background: #1a1a2e;
-      --code-inline-color: var(--theme-color);
-      --sidebar-nav-link-padding: 0.15em 0;
+      --code-inline-background: #1e293b;
+      --code-inline-color: var(--theme-color-teal);
+      --sidebar-nav-link-padding: 0.3em 0;
       --sidebar-nav-strong-margin: 1.2em -25px 0.4em 0;
       --sidebar-nav-strong-padding: 0.15em 0 0.4em 0;
+      --sidebar-nav-strong-color: #999999;
+      --sidebar-nav-strong-font-size: 0.75em;
+      --sidebar-nav-strong-text-transform: uppercase;
+      --link-color: var(--theme-color-teal);
+      --link-color--hover: #5eead4;
+      --sidebar-border-color: #3a3a3a;
+      --sidebar-border-width: 0;
+      --notice-tip-border-color: var(--theme-color-teal);
     }
+    body { background: #222222; }
     .sidebar-nav { padding-bottom: 8rem !important; }
     .sidebar > h1, .sidebar > h1 > a { text-align: left !important; }
     .sidebar > h1 { padding-left: 0; margin-left: 0; }
-    .sidebar > h1 > a { padding: 0 !important; margin: 0 !important; }
+    .sidebar > h1 > a { padding: 0 !important; margin: 0 !important; color: var(--theme-color-teal) !important; }
     .sidebar-nav > ul > li > p { margin: 0 !important; }
-    .sidebar-nav > ul > li:has(> p > strong) { margin-top: 0.8em !important; }
+
+    /* Section headings: non-clickable, uppercase, muted, with spacing */
+    .sidebar-nav > ul > li:has(> p > strong) { margin-top: 1.2em !important; }
     .sidebar-nav > ul > li:has(> p > strong):first-child { margin-top: 0 !important; }
+    .sidebar-nav > ul > li > p > strong {
+      color: #999999;
+      font-size: 0.7em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    /* Collapsible sections: items below a section heading */
+    .sidebar-nav > ul > li:has(> p > strong) ~ li > a,
+    .sidebar-nav > ul > li > a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Active nav item styling */
+    .sidebar-nav li.active > a {
+      color: var(--theme-color-teal) !important;
+      font-weight: 500;
+    }
+
+    /* Tables */
     table { width: 100%; }
     td, th { vertical-align: top; }
     th { background: #2E4057 !important; color: white !important; }
+
+    /* Headings */
     .markdown-section h1,
     .markdown-section h2,
     .markdown-section h3 { border-bottom: none !important; padding-bottom: 0; }
+    .markdown-section h1 { color: var(--theme-color); }
+    .markdown-section h2 { color: var(--theme-color); }
+    .markdown-section h3 { color: #dddddd; }
+
+    /* Scrollbar */
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.5); border-radius: 3px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.7); }
 
     /* Auth gate styles */
     #auth-gate {
@@ -91,6 +141,14 @@
       var root = document.documentElement.style;
       if (theme.color) {
         root.setProperty('--theme-color', theme.color);
+        root.setProperty('--heading-color', theme.color);
+        root.setProperty('--heading-h2-color', theme.color);
+      }
+      if (theme.tealColor) {
+        root.setProperty('--theme-color-teal', theme.tealColor);
+        root.setProperty('--sidebar-nav-link-color--active', theme.tealColor);
+        root.setProperty('--sidebar-name-color', theme.tealColor);
+        root.setProperty('--link-color', theme.tealColor);
       }
       if (theme.sidebarWidth) {
         root.setProperty('--sidebar-width', theme.sidebarWidth);

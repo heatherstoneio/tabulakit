@@ -6,15 +6,16 @@
  */
 window.TABULAKIT_CONFIG = {
   // Site identity
-  name: "My Documentation",
+  name: "TabulaKit",
   description: "A TabulaKit documentation site",
   logo: "",  // Path to logo image (optional, shown in sidebar)
 
   // Theme colors (CSS custom property overrides)
   theme: {
-    color: "#3b82f6",           // Primary accent color
-    sidebarWidth: "260px",
-    baseFontSize: "15px"
+    color: "#e84118",           // Primary accent color (headings)
+    tealColor: "#3bc0cb",       // Secondary accent (links, nav highlights)
+    sidebarWidth: "280px",
+    baseFontSize: "16px"
   },
 
   // Docsify options (merged into window.$docsify)
