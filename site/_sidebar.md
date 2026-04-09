@@ -4,3 +4,5 @@
 - [GitHub Pages](deploy-github-pages.md)
 - [Firebase](deploy-firebase.md)
 - [Netlify](deploy-netlify.md)
+- **CLAUDE CODE**
+- [Setup & Permissions](claude-code-setup.md)
