@@ -19,9 +19,9 @@
       --base-background-color: #222222;
       --base-color: #dddddd;
       --sidebar-background: #2a2a2a;
-      --sidebar-nav-link-color--active: var(--theme-color-teal);
-      --sidebar-name-color: var(--theme-color-teal);
-      --sidebar-nav-link-border-color--active: var(--theme-color-teal);
+      --sidebar-nav-link-color--active: var(--theme-color);
+      --sidebar-name-color: var(--theme-color);
+      --sidebar-nav-link-border-color--active: var(--theme-color);
       --heading-color: var(--theme-color);
       --heading-h2-color: var(--theme-color);
       --blockquote-border-color: var(--theme-color);
@@ -31,28 +31,38 @@
       --sidebar-nav-link-padding: 0.3em 0;
       --sidebar-nav-strong-margin: 1.2em -25px 0.4em 0;
       --sidebar-nav-strong-padding: 0.15em 0 0.4em 0;
-      --sidebar-nav-strong-color: #999999;
+      --sidebar-nav-strong-color: var(--theme-color-teal);
       --sidebar-nav-strong-font-size: 0.75em;
       --sidebar-nav-strong-text-transform: uppercase;
+      --sidebar-nav-strong-border-color: transparent;
+      --sidebar-nav-strong-border-width: 0;
+      --sidebar-nav-pagelink-background: none;
+      --sidebar-nav-pagelink-background--active: none;
+      --sidebar-nav-pagelink-background--collapse: none;
+      --sidebar-nav-pagelink-background--loaded: none;
+      --sidebar-nav-pagelink-padding: 0.25em 0;
       --link-color: var(--theme-color-teal);
       --link-color--hover: #5eead4;
       --sidebar-border-color: #3a3a3a;
       --sidebar-border-width: 0;
       --notice-tip-border-color: var(--theme-color-teal);
+      --sidebar-name-margin: 20px 0 0 0;
+      --sidebar-name-padding: 0;
     }
     body { background: #222222; font-size: 16px; }
-    .markdown-section { font-size: 16px; line-height: 1.7; }
-    .sidebar-nav { padding-bottom: 8rem !important; }
+    .markdown-section { font-size: 16px; line-height: 1.7; padding-top: 5px !important; }
+    .sidebar-nav { padding-bottom: 8rem !important; margin-top: 0.5rem !important; }
+    .sidebar-toggle { top: 30px !important; }
     .sidebar > h1, .sidebar > h1 > a { text-align: left !important; }
     .sidebar > h1 { padding-left: 0; margin-left: 0; }
-    .sidebar > h1 > a { padding: 0 !important; margin: 0 !important; color: var(--theme-color-teal) !important; font-weight: 700 !important; }
+    .sidebar > h1 > a { padding: 0 !important; margin: 0 !important; color: var(--theme-color) !important; font-weight: 700 !important; }
     .sidebar-nav > ul > li > p { margin: 0 !important; }
 
     /* Section headings: non-clickable, uppercase, muted, with spacing */
     .sidebar-nav > ul > li:has(> p > strong) { margin-top: 1.2em !important; }
     .sidebar-nav > ul > li:has(> p > strong):first-child { margin-top: 0 !important; }
     .sidebar-nav > ul > li > p > strong {
-      color: #999999;
+      color: var(--theme-color-teal);
       font-size: 0.7em;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -69,7 +79,7 @@
 
     /* Active nav item styling */
     .sidebar-nav li.active > a {
-      color: var(--theme-color-teal) !important;
+      color: var(--theme-color) !important;
       font-weight: 500;
     }
 
@@ -133,19 +143,28 @@
       }
     }
 
-    /* Headings */
+    /* Headings: tighter spacing, no borders */
     .markdown-section h1,
     .markdown-section h2,
     .markdown-section h3 { border-bottom: none !important; padding-bottom: 0; }
-    .markdown-section h1 { color: var(--theme-color); }
-    .markdown-section h2 { color: var(--theme-color); }
-    .markdown-section h3 { color: #dddddd; }
+    .markdown-section h1 { color: var(--theme-color); margin: 1rem 0 0 0 !important; padding: 0 !important; }
+    .markdown-section h1:first-child { margin-top: 0 !important; }
+    .markdown-section h2 { color: var(--theme-color); margin: 1rem 0 0 0 !important; padding: 0 !important; }
+    .markdown-section h3 { color: #dddddd; margin: 1rem 0 0 0 !important; }
+    .markdown-section p { margin-top: 0 !important; }
 
     /* Scrollbar */
     .sidebar::-webkit-scrollbar { width: 6px; }
     .sidebar::-webkit-scrollbar-track { background: transparent; }
     .sidebar::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.5); border-radius: 3px; }
     .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.7); }
+
+    /* Main scrollbar: thin, dark track, themed rounded thumb */
+    html::-webkit-scrollbar { width: 8px; }
+    html::-webkit-scrollbar-track { background: var(--base-background-color, #222222); }
+    html::-webkit-scrollbar-thumb { background: var(--theme-color); border-radius: 4px; }
+    html::-webkit-scrollbar-thumb:hover { background: var(--theme-color); filter: brightness(1.2); }
+    html { scrollbar-width: thin; scrollbar-color: var(--theme-color) var(--base-background-color, #222222); }
 
     /* Auth gate styles */
     #auth-gate {
