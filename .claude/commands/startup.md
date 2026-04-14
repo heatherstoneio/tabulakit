@@ -229,14 +229,16 @@ If the user chose Firebase with domain or allowlist mode:
 
 ### Clean up deployment configs
 
-If the user chose a specific deployment target (not "Skip"), automatically remove the configs and guides for targets they didn't choose. **Do not ask — just clean up.** Users pick one deploy target and stick with it.
+**CRITICAL: Actually delete these files.** If the user chose a specific deployment target (not "Skip"), automatically remove the config files AND guide pages for targets they didn't choose. **Do not ask — just delete them.** Users pick one deploy target and stick with it.
 
-Remove for unused targets:
-- GitHub Pages: `.github/workflows/deploy.yml`
-- Firebase: `firebase.json`, `.firebaserc.template`
-- Netlify: `netlify.toml`
+Delete these ROOT-LEVEL config files for unused targets:
+- If NOT using GitHub Pages: delete `.github/workflows/deploy.yml` (and `.github/` directory if empty)
+- If NOT using Firebase: delete `firebase.json` and `.firebaserc.template` (both in repo root)
+- If NOT using Netlify: delete `netlify.toml` (in repo root)
 
-Also remove the deployment guide pages from `site/` for ALL targets (`deploy-github-pages.md`, `deploy-firebase.md`, `deploy-netlify.md`). Deployment instructions are provided inline in the summary below — users don't need separate guide pages on their site.
+Also delete the deployment guide pages from `site/` for ALL targets (`deploy-github-pages.md`, `deploy-firebase.md`, `deploy-netlify.md`). Deployment instructions are provided inline in the summary below — users don't need separate guide pages on their site.
+
+Verify the deletions by running `ls firebase.json netlify.toml .github/workflows/deploy.yml 2>&1` after cleanup to confirm only the chosen target's config remains.
 
 ### Remove help/meta content from user site
 
