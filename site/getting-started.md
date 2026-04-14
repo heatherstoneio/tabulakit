@@ -19,7 +19,7 @@ Open VS Code, launch Claude Code, and paste this prompt:
 I want to create a documentation site using TabulaKit. Here's what I need you to do:
 
 1. Check if gh (GitHub CLI) is installed. If not, install it.
-2. Check if I'm authenticated with gh auth status. If not, run gh auth login and walk me through it.
+2. Check if I'm authenticated with gh auth status. If not, run gh auth login and walk me through it. When it asks about token expiration, recommend "No expiration" so the token doesn't stop working later.
 3. Ask me what I want to name my repo and give a one-line description.
 4. Create a new repo from the TabulaKit template by running:
    gh repo create MY-SITE --template heatherstoneio/tabulakit --public --clone
@@ -44,6 +44,8 @@ project context lives in .claude/CLAUDE.md.
 7. Commit that file: git add CLAUDE.md && git commit -m "docs: add setup breadcrumb for first session"
 8. Push: git push origin main
 9. Tell me to click the "New Session" button at the top of the Claude Code panel to start a fresh session so the settings and skills take effect.
+
+NOTE: During this first session you'll see permission prompts for every action — that's normal. Once the new session starts inside the repo, permissions are pre-configured and you won't be prompted anymore.
 
 If anything fails, explain what went wrong and help me fix it. I may be non-technical.
 ```

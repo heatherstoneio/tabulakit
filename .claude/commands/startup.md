@@ -123,14 +123,20 @@ Ask which auth mode they want:
 If **Domain**: ask for the domain (e.g., `yourcompany.com`)
 If **Allowlist**: ask for the email addresses (comma-separated)
 
-Then tell the user:
+Then walk the user through the Firebase setup steps inline (don't send them to a separate guide):
 
-> Firebase requires a few manual steps in your browser that I can't do for you. Follow the guide at `site/deploy-firebase.md` to:
-> 1. Create a Firebase project
-> 2. Register a web app and get your config values
-> 3. Enable Google Sign-In (if using domain or allowlist mode)
+> Firebase requires a few manual steps in your browser that I can't do for you. Here's what to do:
 >
-> Once you have your Firebase config values, share them with me and I'll update the configuration files.
+> **1. Create a Firebase project:**
+> Go to [console.firebase.google.com](https://console.firebase.google.com) → **Add project** → name it (e.g., your site name) → disable Google Analytics (not needed) → **Create project**
+>
+> **2. Register a web app:**
+> On the project home page, click the **web icon** (`</>`) → nickname it anything (e.g., "docs site") → leave Firebase Hosting **unchecked** → **Register app** → you'll see config values (apiKey, authDomain, etc.) — **copy those and paste them back to me**
+>
+> **3. Enable Google Sign-In** (only if using domain or allowlist mode):
+> In the left sidebar: **Build** → **Authentication** → **Get started** → **Sign-in method** tab → click **Google** → toggle **Enable** → **Public-facing name**: enter your site or org name (this shows on the sign-in screen) → **Support email**: pick yours → **Save**
+>
+> Once you have your Firebase config values, paste them here and I'll update everything.
 
 **Default:** Public
 

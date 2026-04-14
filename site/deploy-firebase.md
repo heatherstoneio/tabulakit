@@ -12,24 +12,43 @@ Firebase requires a few steps in your browser that Claude Code can't do for you.
 
 1. Go to [console.firebase.google.com](https://console.firebase.google.com)
 2. Click **Add project**
-3. Give it a name and follow the prompts (you can accept all defaults)
-4. When it's done, note your **Project ID** — it's shown below the project name on the project home page
+3. **Project name** — use your site name or something short (e.g., "my-docs-site"). This becomes part of your URL.
+4. **Google Analytics** — you can disable this (toggle off). It's not needed for a documentation site.
+5. Click **Create project** and wait for it to finish
+6. Note your **Project ID** — it's shown below the project name on the project home page (e.g., `my-docs-site-abc12`)
 
 ### Step 2: Register a Web App
 
 1. On the Firebase project home page, click the **web icon** (`</>`) to add a web app
-2. Give it a nickname (anything — e.g., "docs site")
-3. You do **not** need Firebase Hosting checked here
+2. **App nickname** — anything you'll recognize (e.g., "docs site")
+3. **Firebase Hosting** — leave this **unchecked** (we handle hosting separately)
 4. Click **Register app**
-5. You'll see a code block with your config values — **keep this page open**, you'll need these values in the next section
+5. You'll see a code block with your config values that looks like this:
+
+```javascript
+const firebaseConfig = {
+  apiKey: "AIza...",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-project",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abc123"
+};
+```
+
+**Keep this page open** or copy these values — you'll give them to Claude Code in the next step.
 
 ### Step 3: Enable Google Sign-In (Skip If Public)
 
-Only needed if you're restricting access:
+Only needed if you're restricting access by domain or allowlist:
 
-1. In the Firebase Console sidebar, click **Authentication**, then **Get started**
-2. Click **Google** in the sign-in providers list
-3. Toggle **Enable**, choose a support email, and click **Save**
+1. In the Firebase Console left sidebar, click **Build** → **Authentication**
+2. Click **Get started**
+3. Under the **Sign-in method** tab, click **Google**
+4. Toggle **Enable** (top right)
+5. **Public-facing name** — enter your site name or organization name. This is what users see on the Google sign-in screen (e.g., "Acme Docs" or "Workshop Materials"). You can change it later.
+6. **Support email** — pick your email from the dropdown. This is shown on the sign-in page if users need help.
+7. Click **Save**
 
 That's everything in Firebase Console.
 
