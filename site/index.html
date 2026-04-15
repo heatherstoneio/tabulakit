@@ -129,16 +129,21 @@
           ]
         };
 
-        var docsifyScript = document.createElement('script');
-        docsifyScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js';
-        docsifyScript.onload = function() {
-          if (docsifyOpts.search) {
-            var searchScript = document.createElement('script');
-            searchScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js';
-            document.body.appendChild(searchScript);
-          }
-        };
-        document.body.appendChild(docsifyScript);
+        // Load search plugin before docsify so it registers during init
+        if (docsifyOpts.search) {
+          var searchScript = document.createElement('script');
+          searchScript.src = 'js/search.min.js';
+          searchScript.onload = function() {
+            var docsifyScript = document.createElement('script');
+            docsifyScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js';
+            document.body.appendChild(docsifyScript);
+          };
+          document.body.appendChild(searchScript);
+        } else {
+          var docsifyScript = document.createElement('script');
+          docsifyScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js';
+          document.body.appendChild(docsifyScript);
+        }
       }
 
       // --- Public mode: skip auth entirely ---
