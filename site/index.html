@@ -72,6 +72,16 @@
           name: sidebarName,
           repo: false,
           loadSidebar: true,
+          // Force any nested _sidebar.md / _navbar.md request back to the
+          // root file. Firebase (and similar SPA hosts) rewrite missing
+          // paths to /index.html, so a request for /some/nested/_sidebar.md
+          // returns HTML instead of 404. Docsify then tries to parse that
+          // HTML as markdown and renders an empty sidebar. The alias
+          // short-circuits the nested fetch.
+          alias: {
+            '/.*/_sidebar.md': '/_sidebar.md',
+            '/.*/_navbar.md': '/_navbar.md'
+          },
           subMaxLevel: docsifyOpts.subMaxLevel || 3,
           auto2top: true,
           search: docsifyOpts.search ? {
