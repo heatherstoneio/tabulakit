@@ -12,11 +12,13 @@ Major pivot from Lambda-based ephemeral compute to **container-per-account works
 ### Progress
 
 - ✅ Kickoff — status page live
+- ✅ Officeclaude 404 fix — moved to `site/` directory
 - ✅ **Plan 202604-007 rewrite** — container-per-account workspace architecture, dogfooding thesis, tiered runtime economics, expanded revenue streams (mojo `04e59e4d`)
-- 🔄 **OPORD 202604-025 end-to-end rewrite** — in progress
-- ⏳ Execution brief rewrite
-- ⏳ WARNOs 026 / 027 / 028 touch-ups
-- ⏳ GitLab Phase 3 — label + 17 issues linked to OPORD #720
+- ✅ **Scaffolding commit** — commander M2 suspension, plan approval, OPORD 025 + WARNOs 026/027/028 READMEs, OPORDs index (mojo `92e1991a`)
+- ✅ **OPORD 202604-025 end-to-end rewrite** — 7-day container-workspace sub-phase plan, Main Effort on Day 4 chat-write path (mojo `501ec4cd`)
+- ✅ **Execution brief rewrite** — 23 tasks, critical-path mapped, day-by-day approach aligned to new OPORD (mojo `618d228c`)
+- 🔄 WARNOs 026 / 027 / 028 touch-ups for new architecture
+- ⏳ GitLab Phase 3 — label + ~23 issues linked to OPORD #720
 - ⏳ Activate OPORD #720 (draft → active)
 - ⏳ Session handover document
 - ⏳ Final status update
@@ -25,7 +27,11 @@ Major pivot from Lambda-based ephemeral compute to **container-per-account works
 
 | When | Repo | SHA | Subject |
 |------|------|-----|---------|
+| 2026-04-22 | tabulakit | `0800774` | fix(officeclaude): move to site/ so GitHub Pages actually deploys it |
 | 2026-04-22 | mojo | `04e59e4d` | docs(plan-202604-007): pivot architecture to container-per-account workspace |
+| 2026-04-22 | mojo | `92e1991a` | feat(hosted-tabulakit): activate plan + establish OPORD 025 + WARNOs 026-028 |
+| 2026-04-22 | mojo | `501ec4cd` | docs(opord-025): rewrite for container-per-account workspace architecture |
+| 2026-04-22 | mojo | `618d228c` | docs(opord-025): rewrite execution brief for container-workspace architecture |
 
 ### Known halt points
 
