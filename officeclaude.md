@@ -11,15 +11,21 @@ Major pivot from Lambda-based ephemeral compute to **container-per-account works
 
 ### Progress
 
-- 🔄 **Kickoff** — status page live, beginning rewrites
-- ⏳ Plan 202604-007 rewrite (product scope addendum + architecture section)
-- ⏳ OPORD 202604-025 end-to-end rewrite
+- ✅ Kickoff — status page live
+- ✅ **Plan 202604-007 rewrite** — container-per-account workspace architecture, dogfooding thesis, tiered runtime economics, expanded revenue streams (mojo `04e59e4d`)
+- 🔄 **OPORD 202604-025 end-to-end rewrite** — in progress
 - ⏳ Execution brief rewrite
 - ⏳ WARNOs 026 / 027 / 028 touch-ups
 - ⏳ GitLab Phase 3 — label + 17 issues linked to OPORD #720
 - ⏳ Activate OPORD #720 (draft → active)
 - ⏳ Session handover document
 - ⏳ Final status update
+
+### Recent commits
+
+| When | Repo | SHA | Subject |
+|------|------|-----|---------|
+| 2026-04-22 | mojo | `04e59e4d` | docs(plan-202604-007): pivot architecture to container-per-account workspace |
 
 ### Known halt points
 
