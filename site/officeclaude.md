@@ -1,11 +1,23 @@
 # Office Claude — Live Status
 
-**Last updated:** 2026-04-22 — **SESSION COMPLETE**
+**Last updated:** 2026-04-23 — **REVIEW CYCLE — plan edits committed**
 **Off-nav status page for Trey** — ignore unless you're Trey monitoring a running Claude Code session.
 
 ---
 
-## ✅ Session complete — Hosted TabulaKit architecture pivot + OPORD 025 issued
+## 2026-04-23 review-cycle edits (live)
+
+Trey reviewing the plan + OPORD + execution brief post-issue. Today's edits so far (mojo `cb296585`):
+
+- **Desktop ceiling narrowed** — code-level site customization (custom Astro components, npm packages, config tweaks) is explicitly inside Hosted's capability. Desktop ceiling only covers genuine local-host-only workloads (USB/Bluetooth, GPU, offline, extreme-low-latency, beyond-Power-tier compute).
+- **Main + child sites pattern documented** — single-site vs multi-site user scenarios; main-site rollup/dashboard template with cross-site task aggregation; child-site push-up-status skills + constrained task view; premium upgrade with seamless single→multi migration.
+- **Batteries-included container** — committed as architecture principle. OPORD sub-phase 0.2a + GitLab issue #728 updated with default-toolchain list (pandoc, LibreOffice, Python data libs, aws/gh/git, jq/ripgrep, etc.) and spot-check acceptance criteria.
+
+Still on the review queue: OPORD and execution brief. Session otherwise intact — 23 task issues still live, OPORD still active.
+
+---
+
+## ✅ 2026-04-22 session complete — Hosted TabulaKit architecture pivot + OPORD 025 issued
 
 All 10 session milestones complete. OPORD 202604-025 is active and ready to execute.
 
