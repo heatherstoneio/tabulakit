@@ -50,6 +50,17 @@ Only needed if you're restricting access by domain or allowlist:
 6. **Support email** — pick your email from the dropdown. This is shown on the sign-in page if users need help.
 7. Click **Save**
 
+### Step 3b: Enable Passwordless Email Link (Optional)
+
+Only needed if you want users to be able to sign in via an emailed link in addition to Google — useful for allowlisted users whose email isn't a Google account.
+
+1. In the same **Sign-in method** tab, click **Email/Password**
+2. Toggle **Enable** (top checkbox)
+3. Toggle **Email link (passwordless sign-in)** (second checkbox)
+4. Click **Save**
+
+Then in `site/auth-config.js`, set `allowEmailLink: true`. The email-link section only appears in `"allowlist"` mode.
+
 That's everything in Firebase Console.
 
 ## What Claude Code Does for You
