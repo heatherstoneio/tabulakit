@@ -175,7 +175,7 @@
         // Load search plugin before docsify so it registers during init
         if (docsifyOpts.search) {
           var searchScript = document.createElement('script');
-          searchScript.src = 'js/search.min.js';
+          searchScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js';
           searchScript.onload = function() {
             var docsifyScript = document.createElement('script');
             docsifyScript.src = 'https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js';
